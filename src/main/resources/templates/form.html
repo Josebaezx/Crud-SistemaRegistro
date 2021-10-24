@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/5.1.2/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.15.4/css/all.min.css}" />
+</head>
+<body>
+	<nav th:replace="index :: navbar"></nav>
+	
+	<section>
+		<div class="container col-4">
+			<h2 class="nav justify-content-center"><i class="fa fa-archive" aria-hidden="true"></i><span th:text="' '+${titulo}"></span></h2>
+			<form th:action="@{/form}" method="POST" th:object="${empleado}">
+		<div class="form-floating mb-3">
+			<input type="text" class="form-control"id="nombre" th:field="*{nombre}">
+			<label for="nombre" class="form-label">Nombre</label>
+			<div class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+		</div>
+		<div class="form-floating mb-3">
+			<input type="text" class="form-control"id="apellido" th:field="*{apellido}">
+			<label for="apellido" class="form-label">Apellido</label>
+			<div class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+		</div>
+		<div class="form-floating mb-3">
+			<input type="text" class="form-control"id="telefono" th:field="*{telefono}">
+			<label for="telefono" class="form-label">Telefono</label>
+			<div class="form-text text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+		</div>
+		<div class="form-floating mb-3">
+			<input type="date" class="form-control"id="nacimiento" th:field="*{nacimiento}">
+			<label for="nacimiento" class="form-label">Nacimiento</label>
+			<div class="form-text text-danger" th:if="${#fields.hasErrors('nacimiento')}" th:errors="*{nacimiento}"></div>
+		</div>
+		<div class="form-floating mb-3">
+			<input type="text" class="form-control"id="cargo" th:field="*{cargo}">
+			<label for="cargo" class="form-label">Cargo</label>
+			<div class="form-text text-danger" th:if="${#fields.hasErrors('cargo')}" th:errors="*{cargo}"></div>
+		</div>
+		<div class="form-floating mb-3">
+			<input type="number" class="form-control"id="salario" th:field="*{salario}">
+			<label for="salario" class="form-label">Salario</label>
+			<div class="form-text text-danger" th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}"></div>
+		</div>
+		
+		<button type="submit" class="btn btn-primary">Guardar</button>
+	</form>
+		</div>
+	</section>
+</body>
+</html>

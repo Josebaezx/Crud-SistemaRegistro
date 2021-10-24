@@ -1,0 +1,2 @@
+insert into empleados(id,nombre, apellido,telefono,nacimiento,cargo,salario) values(1,'Elian','Garcia','0981108108','1999-10-10','Comandante',15000000);
+insert into empleados(id,nombre, apellido,telefono,nacimiento,cargo,salario) values(2,'Lucas','Abdo Benitez','0981108108','1999-10-10','Gerente',15000000);

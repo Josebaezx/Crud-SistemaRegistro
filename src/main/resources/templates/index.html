@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/5.1.2/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.15.4/css/all.min.css}" />
+</head>
+<body>
+	<nav th:fragment="navbar">
+		<ul class="nav justify-content-center nav-tabs">
+		<li class="nav-item"><a class="nav-link" th:href="@{/index}">Inicio</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/lista}">Empleados</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/form}">Agregar</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Salir<i class="fas fa-door-open"></i></a></li>
+	</ul>
+	</nav>
+	
+	<div class="container col-4">
+	<h2><i class="fas fa-adjust"></i>Resumen</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Sueldos a Pagar</th>
+					<td><span class="btn btn-primary">[[${#numbers.formatDecimal(salarioTotal,3,'POINT',0,'COMMA')} + ' Gs.']]</span></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Total Funcionarios</th>
+					<td><span class="btn btn-primary">[[${suma}]]</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</html>
