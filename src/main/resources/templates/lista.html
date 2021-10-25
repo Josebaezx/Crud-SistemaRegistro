@@ -7,8 +7,9 @@
 	th:href="@{/webjars/bootstrap/5.1.2/css/bootstrap.min.css}" />
 <link rel="stylesheet"
 	th:href="@{/webjars/font-awesome/5.15.4/css/all.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
-<body style="background-image: url('/images/f1.jpg');">
+<body>
 	<nav th:replace="index :: navbar"></nav>
 	<div class="container">
 	<h2><i class="fas fa-list" ></i><span th:text="' '+${titulo}"></span></h2>
