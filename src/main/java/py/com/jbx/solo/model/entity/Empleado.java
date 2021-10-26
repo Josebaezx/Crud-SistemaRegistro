@@ -27,7 +27,7 @@ public class Empleado implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@NotEmpty
 	private String nombre;
@@ -41,7 +41,7 @@ public class Empleado implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date nacimiento;
 	@NotEmpty
-	@Pattern(regexp = "[a-zA-Z]+", message = "no debe ingresar numeros")
+	@Pattern(regexp = "[a-zA-ZÀ-ÿ\u00f1\u00d1\u00E0\u00FC]+", message = "no debe ingresar numeros")
 	private String cargo;
 	@NotNull
 	private Long salario;
