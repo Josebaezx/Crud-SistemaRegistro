@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import py.com.jbx.solo.model.entity.Empleado;
 import py.com.jbx.solo.model.service.IEmpleadoService;
 
@@ -64,18 +66,21 @@ public class EmpleadoController {
 	}
 	
 	@PostMapping("/form")
-	public String formGuardar(@Valid Empleado empleado, BindingResult result, Model model, SessionStatus status) {
+	public String formGuardar(@Valid Empleado empleado, BindingResult result, Model model, RedirectAttributes flash, SessionStatus status) {
 		if(result.hasErrors()) {
 			model.addAttribute("titulo","Registro Empleado");
 			return "form";
 		}
+		String mensaje= empleado.getId() == null? "Agregado con éxito!": "Actualizado con éxito!";
 		empleadoService.guardar(empleado);
 		status.setComplete();
+		flash.addFlashAttribute("success",mensaje);
 		return "redirect:/lista";
 	}
 	
 	@GetMapping("/eliminar/{id}")
-	public String eliminar(@PathVariable Long id, Model model) {
+	public String eliminar(@PathVariable Long id, Model model, RedirectAttributes flash) {
+		flash.addFlashAttribute("success", "Eliminado con éxito!");
 		empleadoService.eliminar(id);
 		return "redirect:/lista";
 	}

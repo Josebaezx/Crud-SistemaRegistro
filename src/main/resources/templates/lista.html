@@ -9,7 +9,7 @@
 	th:href="@{/webjars/font-awesome/5.15.4/css/all.min.css}" />
 </head>
 <body>
-	<nav th:replace="index :: navbar"></nav>
+	<header th:replace="/layout/plantillas :: navbar"></header>
 	<div class="container">
 	<h2><i class="fas fa-list" ></i><span th:text="' '+${titulo}"></span></h2><hr/>
 	<table class="table">
