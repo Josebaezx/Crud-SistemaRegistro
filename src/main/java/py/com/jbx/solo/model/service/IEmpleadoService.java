@@ -1,5 +1,7 @@
 package py.com.jbx.solo.model.service;
+
 import java.util.List;
+
 import py.com.jbx.solo.model.entity.Empleado;
 
 public interface IEmpleadoService {
