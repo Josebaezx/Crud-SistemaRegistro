@@ -2,12 +2,12 @@ package py.com.jbx.solo.model.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import py.com.jbx.solo.model.dao.IEmpleadoDao;
 import py.com.jbx.solo.model.entity.Empleado;
 
-@Repository
+@Service
 public class EmpleadoServiceImpl implements IEmpleadoService {
 	@Autowired
 	private IEmpleadoDao empleadoDao;

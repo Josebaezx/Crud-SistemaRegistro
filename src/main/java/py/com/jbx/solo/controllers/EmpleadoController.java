@@ -80,9 +80,10 @@ public class EmpleadoController {
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable Long id, Model model, RedirectAttributes flash) {
-		flash.addFlashAttribute("success", "Eliminado con éxito!");
-		empleadoService.eliminar(id);
-		return "redirect:/lista";
+			flash.addFlashAttribute("success", "Eliminado con éxito!");
+			empleadoService.eliminar(id);
+			return "redirect:/lista";
+		
 	}
 	
 	@ModelAttribute("salarioTotal")
