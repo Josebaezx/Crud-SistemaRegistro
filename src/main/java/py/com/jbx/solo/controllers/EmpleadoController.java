@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import py.com.jbx.solo.model.entity.Empleado;
 import py.com.jbx.solo.model.service.IEmpleadoService;
 
@@ -97,10 +98,11 @@ public class EmpleadoController {
 		return salarioTotal;
 	}
 	
+	
 	@PostMapping("/listarpornombre")
-	public String listaPorNombre(@RequestParam String nombreBuscar, Model model) {
+	public String listaPorNombreEmpleado(@RequestParam String nombreBuscar, Model model) {
 		model.addAttribute("titulo","Lista de Empleados");
-		model.addAttribute("empleados", empleadoService.buscarPorNombre(nombreBuscar));
+		model.addAttribute("empleados", empleadoService.BuscarEmpleadoByNombre(nombreBuscar));
 		return "lista";
 	}
 }

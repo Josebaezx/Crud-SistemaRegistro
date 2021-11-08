@@ -1,5 +1,4 @@
 package py.com.jbx.solo.model.service;
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +40,12 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 	@Transactional(readOnly = true)
 	public List<Empleado> buscarPorNombre(String nombre) {
 		return empleadoDao.findByNombreIgnoreCase(nombre);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Empleado> BuscarEmpleadoByNombre(String nombre) {
+		return empleadoDao.findEmpleadoByNombre(nombre);
 	}
 
 }

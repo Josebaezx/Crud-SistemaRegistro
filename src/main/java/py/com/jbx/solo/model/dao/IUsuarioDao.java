@@ -5,5 +5,6 @@ import py.com.jbx.solo.model.entity.Usuario;
 
 public interface IUsuarioDao extends JpaRepository<Usuario, Long>{
 	Usuario findByUsername(String username);
+	
 
 }
