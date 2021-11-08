@@ -9,6 +9,5 @@ public interface IEmpleadoService {
 	public void guardar(Empleado empleado);
 	public Empleado buscar(Long id);
 	public void eliminar(Long id);
-	public List<Empleado> buscarPorNombre(String nombre);
 	public List<Empleado> BuscarEmpleadoByNombre(String nombre);
 }

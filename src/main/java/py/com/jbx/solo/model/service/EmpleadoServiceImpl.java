@@ -38,12 +38,6 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Empleado> buscarPorNombre(String nombre) {
-		return empleadoDao.findByNombreIgnoreCase(nombre);
-	}
-
-	@Override
-	@Transactional(readOnly = true)
 	public List<Empleado> BuscarEmpleadoByNombre(String nombre) {
 		return empleadoDao.findEmpleadoByNombre(nombre);
 	}
