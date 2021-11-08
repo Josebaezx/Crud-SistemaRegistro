@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import py.com.jbx.solo.model.entity.Empleado;
 import py.com.jbx.solo.model.service.IEmpleadoService;
 
@@ -95,5 +95,12 @@ public class EmpleadoController {
 			salarioTotal+=t.getSalario();
 		}
 		return salarioTotal;
+	}
+	
+	@PostMapping("/listarpornombre")
+	public String listaPorNombre(@RequestParam String nombreBuscar, Model model) {
+		model.addAttribute("titulo","Lista de Empleados");
+		model.addAttribute("empleados", empleadoService.buscarPorNombre(nombreBuscar));
+		return "lista";
 	}
 }

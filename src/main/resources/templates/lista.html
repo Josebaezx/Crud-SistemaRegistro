@@ -10,34 +10,56 @@
 </head>
 <body>
 	<header th:replace="/layout/plantillas :: navbar"></header>
+
 	<div class="container">
-	<h2><i class="fas fa-list" ></i><span th:text="' '+${titulo}"></span></h2><hr/>
-	<table class="table">
-		<thead>
-			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Nombre</th>
-				<th scope="col">Apellido</th>
-				<th scope="col">Telefono</th>
-				<th scope="col">Nacimiento</th>
-				<th scope="col">Cargo</th>
-				<th scope="col">Salario</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="empleado, c: ${empleados}">
-				<th scope="row" th:text="${c.count}"></th>
-				<td th:text="${empleado.nombre}"></td> 
-				<td th:text="${empleado.apellido}"></td> 
-				<td th:text="${empleado.telefono}"></td> 
-				<td>[[${#calendars.format(empleado.nacimiento,'dd-MM-yyyy')}]]</td>
-				<td th:text="${empleado.cargo}"></td>
-				<td>[[${#numbers.formatDecimal(empleado.salario,3,'POINT',0,'COMMA')}]]<span> Gs.</span></td>
-				<td><a class="btn btn-warning" th:href="@{/form/} + ${empleado.id}"><i class="fas fa-edit"></i></a></td>
-				<td><a class="btn btn-danger" th:href="@{/eliminar/} + ${empleado.id}" onclick="return confirm('Eliminar! \nEstas seguro?');"><i class="fas fa-trash-alt"></i></a></td>
-			</tr>
-		</tbody>
-	</table>
+		<nav class="navbar">
+			<div class="container-fluid">
+				<a class="navbar-brand"></a>
+				<form class="d-flex" th:action="@{/listarpornombre}" method="POST">
+					<input class="form-control me-2" type="search" name="nombreBuscar" placeholder="Buscar por nombre"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Buscar</button>
+				</form>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container">
+		<h2>
+			<i class="fas fa-list"></i><span th:text="' '+${titulo}"></span>
+		</h2>
+		<hr />
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Nacimiento</th>
+					<th scope="col">Cargo</th>
+					<th scope="col">Salario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="empleado, c: ${empleados}">
+					<th scope="row" th:text="${c.count}"></th>
+					<td th:text="${empleado.nombre}"></td>
+					<td th:text="${empleado.apellido}"></td>
+					<td th:text="${empleado.telefono}"></td>
+					<td>[[${#calendars.format(empleado.nacimiento,'dd-MM-yyyy')}]]</td>
+					<td th:text="${empleado.cargo}"></td>
+					<td>[[${#numbers.formatDecimal(empleado.salario,3,'POINT',0,'COMMA')}]]<span>
+							Gs.</span></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/form/} + ${empleado.id}"><i class="fas fa-edit"></i></a></td>
+					<td><a class="btn btn-danger"
+						th:href="@{/eliminar/} + ${empleado.id}"
+						onclick="return confirm('Eliminar! \nEstas seguro?');"><i
+							class="fas fa-trash-alt"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

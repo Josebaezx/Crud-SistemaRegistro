@@ -37,4 +37,10 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 		empleadoDao.deleteById(id);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<Empleado> buscarPorNombre(String nombre) {
+		return empleadoDao.findByNombreIgnoreCase(nombre);
+	}
+
 }
