@@ -21,7 +21,8 @@ class CrudPracticoSoloApplicationTests {
 	@Test
 	public void crearUsuario() {
 		Usuario us= new Usuario();
-		us.setUsername("Admin");
+		//us.setIdUsuario(2l);
+		us.setUsername("Manager");
 		us.setPassword(encoder.encode("unida2021"));
 		
 		Usuario retorno=repo.save(us);
