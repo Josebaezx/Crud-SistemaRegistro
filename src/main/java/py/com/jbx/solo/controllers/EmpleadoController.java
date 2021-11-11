@@ -22,9 +22,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import py.com.jbx.solo.model.entity.Empleado;
 import py.com.jbx.solo.model.service.IEmpleadoService;
 
-@Controller
+@Controller @RequestMapping("/")
 @SessionAttributes("empleado")
-@RequestMapping("/")
 public class EmpleadoController {
 	
 	@Autowired
@@ -36,10 +35,6 @@ public class EmpleadoController {
 		binder.registerCustomEditor(String.class, recortaString);
 	}
 
-	@GetMapping("/")
-	public String inicio() {
-		return "redirect:/index";
-	}
 	
 	@GetMapping("/index")
 	public String home() {
