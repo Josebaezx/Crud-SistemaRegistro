@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import py.com.jbx.solo.model.entity.Empleado;
 import py.com.jbx.solo.model.service.IEmpleadoService;
 
-@Controller @RequestMapping("/")
+@Controller
 @SessionAttributes("empleado")
 public class EmpleadoController {
 	
@@ -34,7 +34,11 @@ public class EmpleadoController {
 		StringTrimmerEditor recortaString= new StringTrimmerEditor(true);
 		binder.registerCustomEditor(String.class, recortaString);
 	}
-
+	
+	@GetMapping("/")
+	public String inicio() {
+		return "redirect:/index";
+	}
 	
 	@GetMapping("/index")
 	public String home() {
